@@ -1,7 +1,9 @@
 package app;
 
-import java.awt.Canvas;
+import java.awt.*;
 import java.awt.Dimension;
+import java.awt.image.*;
+
 import javax.swing.JFrame;
 
 public class Game extends Canvas implements Runnable{
@@ -12,10 +14,12 @@ public class Game extends Canvas implements Runnable{
     private final int WIDTH = 160;
     private final int HEIGTH = 120;
     private final int SCALE = 4;
+    private BufferedImage image;
 
     public Game(){
         this.setPreferredSize(new Dimension(WIDTH*SCALE, HEIGTH*SCALE));
         initFrame();
+        image = new BufferedImage(WIDTH,HEIGTH, BufferedImage.TYPE_INT_RGB);
     }
 
     public void initFrame(){
@@ -46,11 +50,21 @@ public class Game extends Canvas implements Runnable{
     }
 
     public void tick(){
-
+        
     }
 
     public void render(){
-
+        BufferStrategy bs = this.getBufferStrategy();
+        if(bs == null){
+            this.createBufferStrategy(3);
+            return;
+        }
+        Graphics g = image.getGraphics();
+        g.setColor(new Color(19,19,19));
+        g.fillRect(0,0,WIDTH,HEIGTH);
+        g = bs.getDrawGraphics();
+        g.drawImage(image,0,0,WIDTH*SCALE, HEIGTH*SCALE, null);
+        bs.show();
     }
 
     public void run(){
