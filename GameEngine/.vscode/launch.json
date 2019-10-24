@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Game",
+            "request": "launch",
+            "mainClass": "app.Game",
+            "projectName": "GameEngine"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - GameEngine",
             "request": "launch",
             "mainClass": "app.GameEngine",

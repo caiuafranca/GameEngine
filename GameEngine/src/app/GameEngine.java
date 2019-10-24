@@ -5,6 +5,10 @@ public class GameEngine implements Runnable {
     public boolean isRunning;
     private Thread thread;
 
+    public GameEngine(){
+        
+    }
+
     public static void main(String[] args) throws Exception {
         GameEngine game = new GameEngine();
         game.start();
@@ -31,6 +35,7 @@ public class GameEngine implements Runnable {
         while (isRunning) {
             tick();
             render();
+            
             /*
             try {
                 Thread.sleep(1000/60);
