@@ -7,7 +7,6 @@ import java.awt.image.*;
 import javax.swing.JFrame;
 
 public class Game extends Canvas implements Runnable{
-
     public static JFrame frame;
     private Thread thread;
     private boolean isRunning = true;
@@ -44,6 +43,7 @@ public class Game extends Canvas implements Runnable{
 
     }
 
+   
     public static void main(String[] args) {
         Game game = new Game();
         game.start();   
